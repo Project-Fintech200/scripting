@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This function verifies users account status
+# -e = exist
+check()
+{
+if [ -e /etc/passwd ]
+then
+  echo "It exist. Please proceed ..."
+  grep edwin /etc/passwd
+  tail -5 /etc/passwd
+  touch /home/ec2-user/test.java
+else
+  echo "User does not exist"
+fi
+}
+check
